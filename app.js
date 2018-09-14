@@ -13,13 +13,21 @@ new Vue({
         },
         attack: function() {
             this.monsterHealth -= this.calculateDamage(3,10);
-
             if(this.checkWin()) {
                 return;
             }
 
+            this.monsterAttacks();
+        },
+        specialAttack: function() {
+            this.monsterHealth -= this.calculateDamage(10,20);
+            if(this.checkWin) {
+                return;
+            }
+            this.monsterAttacks();
+        },
+        monsterAttacks: function() {
             this.playerHealth -= this.calculateDamage(5,12);
-
             this.checkWin();
         },
         calculateDamage: function(min, max) {
